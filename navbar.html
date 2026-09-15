@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinterest Navbar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+                </svg>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active">Beranda</a>
+                <a href="#" class="nav-link">Jelajahi</a>
+                <a href="#" class="nav-link">Buat</a>
+            </div>
+        </div>
+
+        <div class="nav-center">
+            <div class="search-bar">
+                <svg class="search-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.5 3a7.5 7.5 0 015.645 12.438l4.709 4.708a1.5 1.5 0 01-2.121 2.121l-4.708-4.709A7.5 7.5 0 1110.5 3zm0 3a4.5 4.5 0 100 9 4.5 4.5 0 000-9z"/>
+                </svg>
+                <input type="text" class="search-input" placeholder="Cari ide">
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <button class="icon-button" title="Notifikasi">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.477 2 2 6.477 2 12v4.5A3.5 3.5 0 005.5 20h13a3.5 3.5 0 003.5-3.5V12c0-5.523-4.477-10-10-10zm0 2c4.418 0 8 3.582 8 8v4.5a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 014 16.5V12c0-4.418 3.582-8 8-8zm-2 14h4a2 2 0 01-4 0z"/>
+                </svg>
+            </button>
+            <button class="icon-button" title="Pesan">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12zM7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
+                </svg>
+            </button>
+            <div class="profile-button">
+                <img src="https://via.placeholder.com/40" alt="Profile">
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // Toggle active state untuk nav links
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-input');
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                console.log('Mencari:', this.value);
+            }
+        });
+    </script>
+</body>
+</html>
